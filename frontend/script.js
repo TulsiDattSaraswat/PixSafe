@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    const API_BASE = "https://pixsafe.onrender.com";
     // =========================
     // 🔄 PANEL FUNCTIONS
     // =========================
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const formData = new FormData();
             formData.append("file", file);
 
-            const res = await fetch("/scan-image", {
+            const res = await fetch(`${API_BASE}/api/scan-image`, {
                 method: "POST",
                 body: formData
             });
@@ -49,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         showLoader(true);
 
-        const res = await fetch("/scan-url", {
+        const res = await fetch(`${API_BASE}/api/scan-url`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
