@@ -4,7 +4,27 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================
     // 🔄 PANEL FUNCTIONS
     // =========================
+    window.scrollToFeatures = function () {
+        document.getElementById('featuresSection').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    };
     window.openPanel = function (id) {
+        if (id === 'featurePanel') {
+            const dd = document.getElementById('featuresDropdown');
+            dd.classList.toggle('open');
+
+            // close when clicking outside
+            const close = (e) => {
+                if (!dd.contains(e.target) && !e.target.closest('.nav-links')) {
+                    dd.classList.remove('open');
+                    document.removeEventListener('click', close);
+                }
+            };
+            setTimeout(() => document.addEventListener('click', close), 0);
+            return;
+        }
         document.getElementById(id).classList.add("active");
     };
 

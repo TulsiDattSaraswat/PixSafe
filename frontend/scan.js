@@ -246,7 +246,7 @@ function toggleLoading(isLoading, isAI = false) {
                 font-size: 0.7rem; color: #818cf8;
                 margin-top: 4px; letter-spacing: 1px;
             `;
-            aiBadge.textContent = '⚡ CLAUDE VISION ACTIVE';
+            aiBadge.textContent = '⚡ SCAN VISION ACTIVE';
             if (!document.getElementById('aiBadge')) {
                 loaderText?.parentNode.appendChild(aiBadge);
             }
@@ -269,6 +269,9 @@ function displayResult(res) {
     label.innerText = res.verdict;
     label.className = `verdict-label ${res.verdict.toLowerCase()}`;
     icon.innerText = res.verdict === 'SAFE' ? '✅' : '🚫';
+    const badge = document.getElementById('verdictBadge');
+    badge.innerText = res.verdict === 'SAFE' ? 'Safe' : 'Danger';
+    badge.className = `verdict-badge ${res.verdict.toLowerCase()}`;
 
     bar.style.width = res.score + '%';
     bar.style.backgroundColor = res.verdict === 'SAFE' ? '#10b981' : '#ef4444';

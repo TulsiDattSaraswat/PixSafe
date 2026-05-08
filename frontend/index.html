@@ -23,18 +23,58 @@
 
             <!-- Center -->
             <div class="nav-links">
-                <a onclick="openPanel('featurePanel')">Features</a>
+                <a onclick="scrollToFeatures()">Features</a>
                 <a href="about.html">About</a>
             </div>
 
             <!-- Right -->
             <div class="nav-actions">
-                <button class="icon-btn">📩</button>
-                <button class="icon-btn">🔗</button>
+                <a>
+                    <button class="icon-btn">📩</button>
+                </a>
+                <a href="https://github.com/TulsiDattSaraswat/PixSafe" target="_blank">
+                    <button class="icon-btn">🔗</button>
+                </a>
             </div>
 
         </div>
+
+
+
     </nav>
+    <!-- FEATURES DROPDOWN -->
+    <div class="features-dropdown" id="featuresDropdown">
+        <div class="features-dropdown-inner">
+            <div class="fd-item">
+                <span class="fd-icon">🔗</span>
+                <div>
+                    <strong>URL Scanner</strong>
+                    <p>Paste any suspicious link and get an instant threat report.</p>
+                </div>
+            </div>
+            <div class="fd-item">
+                <span class="fd-icon">🖼️</span>
+                <div>
+                    <strong>Image Scanner</strong>
+                    <p>Upload images to detect QR codes, scam content & malware.</p>
+                </div>
+            </div>
+            <div class="fd-item">
+                <span class="fd-icon">🤖</span>
+                <div>
+                    <strong>AI-Powered</strong>
+                    <p>Claude Vision analyzes every scan with advanced AI detection.</p>
+                </div>
+            </div>
+            <div class="fd-item">
+                <span class="fd-icon">📋</span>
+                <div>
+                    <strong>Scan History</strong>
+                    <p>Review all your past scans with threat scores and details.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- 🌌 HERO -->
@@ -53,11 +93,12 @@
 
         <div class="hero-buttons">
             <!-- <button onclick="openPanel('scanPanel')">Get Started</button> -->
-            <a href="scan.html">
+            <a href="scan.html" style="text-decoration:none;">
                 <button>Get Started</button>
             </a>
             <!-- <span class="secondary-text">Help Us Improve</span> -->
-            <a href="https://forms.gle/YOUR_FORM_LINK" target="_blank" class="secondary-text">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUJ2tu1JofsAkH496J_a6pSqtxx9pL6OYFFMrln2MkK1_7Rw/viewform?usp=publish-editor"
+                target="_blank" class="secondary-text">
                 Help Us Improve
             </a>
         </div>
@@ -70,7 +111,7 @@
 
         <div class="video-container">
             <video autoplay muted loop playsinline>
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                <source src="PixSafe Demo.mp4" type="video/mp4">
             </video>
         </div>
 
@@ -84,14 +125,15 @@
         </h2>
 
         <p class="safe-desc">
-            PixSafe provides real-time detection of harmful links and images, helping users instantly identify potential
+            PixSafe provides real-time detection of harmful links and images, helping users instantly identify
+            potential
             threats. It enables safer browsing by delivering quick, reliable results and enhancing overall online
             security.
         </p>
     </section>
 
     <!-- 🎯 FEATURE SLIDER BOX -->
-    <section class="feature-slider">
+    <section class="feature-slider" id="featuresSection">
 
         <div class="feature-box">
 
