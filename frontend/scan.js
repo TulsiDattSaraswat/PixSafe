@@ -149,6 +149,23 @@ async function scanURL() {
     const urlInput = document.getElementById('urlInput').value.trim();
     if (!urlInput) return alert('Please enter a URL');
 
+    try {
+        let normalizedUrl = urlInput.trim();
+        if (/^www\./i.test(normalizedUrl)) {
+            normalizedUrl = 'https://' + normalizedUrl;
+        }
+
+        const parsed = new URL(normalizedUrl);
+        if (!['http:', 'https:'].includes(parsed.protocol)) {
+            return alert('Only http:// and https:// URLs are supported.');
+        }
+
+        // Use normalizedUrl going forward instead of urlInput
+    } catch (e) {
+        return alert('That is not a valid URL. Example: https://example.com or www.example.com');
+    }
+
+
     toggleLoading(true);
     runAnalysisAnimation(false); // Don't await — run in parallel
 

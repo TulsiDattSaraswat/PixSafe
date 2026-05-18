@@ -258,6 +258,8 @@ function analyzeURL(rawUrl) {
 
     const finalScore = Math.min(Math.round(score), 100);
     const verdict = finalScore >= 45 ? 'DANGER' : 'SAFE';
+    const hasHighThreat = details.some(d => d.severity === 'critical' || d.severity === 'high');
+    verdict = (hasHighThreat || finalScore >= 40) ? 'DANGER' : 'SAFE';
 
     const reasons = details
         .sort((a, b) => b.points - a.points)
