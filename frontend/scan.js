@@ -170,7 +170,7 @@ async function scanURL() {
     runAnalysisAnimation(false); // Don't await — run in parallel
 
     try {
-        const response = await fetch('https://pixsafe.onrender.com/api/scan-url', {
+        const response = await fetch('http://localhost:3000/api/scan-url', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ url: urlInput })
@@ -209,7 +209,7 @@ async function scanImage() {
     runAnalysisAnimation(true); // Don't await — runs in parallel with fetch
 
     try {
-        const response = await fetch('https://pixsafe.onrender.com/api/scan-image', {
+        const response = await fetch('http://localhost:3000/api/scan-image', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

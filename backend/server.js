@@ -1,4 +1,3 @@
-
 /**
  * PixSafe Backend — server.js
  * Pure JS threat scanner. No external APIs. No AI dependency.
@@ -258,8 +257,6 @@ function analyzeURL(rawUrl) {
 
     const finalScore = Math.min(Math.round(score), 100);
     const verdict = finalScore >= 45 ? 'DANGER' : 'SAFE';
-    const hasHighThreat = details.some(d => d.severity === 'critical' || d.severity === 'high');
-    verdict = (hasHighThreat || finalScore >= 40) ? 'DANGER' : 'SAFE';
 
     const reasons = details
         .sort((a, b) => b.points - a.points)
@@ -633,7 +630,7 @@ app.listen(PORT, () => {
 ╔═══════════════════════════════════════════╗
 ║     PixSafe Backend  —  No-API Mode       ║
 ╠═══════════════════════════════════════════╣
-║  Server  : http://localhost:${PORT}           ║
+║  Server  : http://localhost:${PORT}       ║
 ║  Engine  : Pure JS heuristics             ║
 ║  API key : Not required                   ║
 ╚═══════════════════════════════════════════╝
