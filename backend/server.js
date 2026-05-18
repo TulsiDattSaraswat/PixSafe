@@ -256,7 +256,9 @@ function analyzeURL(rawUrl) {
     if (details.length === 0) details.push({ label: 'No suspicious patterns detected', severity: 'safe', points: 0 });
 
     const finalScore = Math.min(Math.round(score), 100);
-    const verdict = finalScore >= 45 ? 'DANGER' : 'SAFE';
+    // const verdict = finalScore >= 45 ? 'DANGER' : 'SAFE';
+    const hasCritical = details.some(d => d.severity === 'critical');
+    const verdict = hasCritical || finalScore >= 45 ? 'DANGER' : 'SAFE';
 
     const reasons = details
         .sort((a, b) => b.points - a.points)
